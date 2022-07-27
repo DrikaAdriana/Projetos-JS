@@ -1,0 +1,70 @@
+ 
+<html>
+  <script>
+
+
+    function arredondar(valor){
+        return Math.round(valor*100)/100
+    }
+
+    function calcularJuros (valor) {
+        juros = arredondar(valor * 0.1)
+        return juros
+    }
+
+    function calcularRendimentos (valor) {
+      rendimentos = arredondar(valor * 0.005)
+      console.log(rendimentos)
+      return rendimentos
+    }
+
+    function calcularSaldo(mes, saldoInicial,salario, aluguel, contaDeLuz,internet, alimentacao) {
+        console.log(mes)
+        saldo = saldoInicial + salario - aluguel - contaDeLuz - internet - alimentacao
+        estaNegativo = saldo < 0
+        if(estaNegativo) {
+           juros = calcularJuros(saldo)
+           saldo = arredondar(saldo + juros)
+        }else{
+           rendimentos = calcularRendimentos(saldo)
+           saldo = arredondar(saldo + rendimentos)
+    }
+    return saldo
+  }
+
+    //  J U L H O
+    saldoInicial = 0
+    salario1 = 5000
+    aluguel1 = 1000
+    contaDeLuz1 = 200
+    internet1 = 100
+    alimentacao1 = 500
+    saldo1 = calcularSaldo("Julho", saldoInicial , salario1, aluguel1, contaDeLuz1, internet1, alimentacao1 )
+    console.log(saldo1)
+
+    //   A G O S T O
+    salario2 = 3000
+    aluguel2 = 1000
+    contaDeLuz2 = 200
+    internet2 = 1200
+    alimentacao2 = 500
+    saldo2 = calcularSaldo("Agosto", saldo1, salario2, aluguel2, contaDeLuz2, internet2, alimentacao2)
+    console.log(saldo2)
+
+    // S E T E M B R O
+    salario3 = 2000
+    aluguel3 = 2000
+    contaDeLuz3 = 500
+    internet3 = 200
+    alimentacao3 = 1000
+    saldo3 = calcularSaldo("Setembro", saldo2, salario3, aluguel3, contaDeLuz3, internet3, alimentacao3)
+    console.log(saldo3)
+    
+
+    acumuladoAno = saldo3
+    console.log("ano")
+    console.log(acumuladoAno)
+
+  </script>
+  </html>
+ 

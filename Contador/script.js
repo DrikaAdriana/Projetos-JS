@@ -11,11 +11,14 @@ function contar(){
         let i = ini
         let f = fim
         let p = passo
-
-        for(let c = i; c <= f; c += p) {
-            res.innerHTML +=`${c} \u{1F449}`
+        if (i < f) {
+            for(let c = i; c <= f; c += p) {
+                res.innerHTML +=`${c} \u{1F449}`
+            }
+            res.innerHTML += `\u{1F3C1}`
         }
-        res.innerHTML += `\u{1F3C1}`
+
+        
     }
 
 }
