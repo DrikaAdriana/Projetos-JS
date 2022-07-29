@@ -2,8 +2,7 @@
 <html>
   <script>
 
-
-    function arredondar(valor){
+    function arredondar( valor){
         return Math.round(valor*100)/100
     }
 
@@ -18,9 +17,17 @@
       return rendimentos
     }
 
-    function calcularSaldo(mes, saldoInicial,salario, aluguel, contaDeLuz,internet, alimentacao) {
+    function calcularSaldo (mes, saldoInicial, lancamentos) {
         console.log(mes)
-        saldo = saldoInicial + salario - aluguel - contaDeLuz - internet - alimentacao
+        saldo = saldoInicial
+        for (lancamento of lancamentos) {
+            if ( lancamento.tipo === "receita") {
+                saldo += lancamento.valor
+            }
+            if (lancamento.tipo === "despesa") {
+                saldo -= lancamento.valor
+            }
+        }   
         estaNegativo = saldo < 0
         if(estaNegativo) {
            juros = calcularJuros(saldo)
@@ -28,43 +35,46 @@
         }else{
            rendimentos = calcularRendimentos(saldo)
            saldo = arredondar(saldo + rendimentos)
+        }
+        return saldo
     }
-    return saldo
-  }
-
-    //  J U L H O
     saldoInicial = 0
-    salario1 = 5000
-    aluguel1 = 1000
-    contaDeLuz1 = 200
-    internet1 = 100
-    alimentacao1 = 500
-    saldo1 = calcularSaldo("Julho", saldoInicial , salario1, aluguel1, contaDeLuz1, internet1, alimentacao1 )
+    lancamentosJaneiro = [ 
+      {categoria: "Salário", tipo: "receita", valor: 5000},
+      {categoria: "Aluguel", tipo: "despesa", valor: 1000},
+      {categoria: "Mercado", tipo: "despesa", valor: 1200}, 
+      {categoria: "Conta de Luz", tipo: "despesa", valor: 350}, 
+      {categoria: "Internet", tipo: "despesa", valor: 100}
+    ]
+    saldo1 = calcularSaldo("Janeiro", saldoInicial, lancamentosJaneiro)
     console.log(saldo1)
 
-    //   A G O S T O
-    salario2 = 3000
-    aluguel2 = 1000
-    contaDeLuz2 = 200
-    internet2 = 1200
-    alimentacao2 = 500
-    saldo2 = calcularSaldo("Agosto", saldo1, salario2, aluguel2, contaDeLuz2, internet2, alimentacao2)
+    lancamentosFevereiro = [ 
+      {categoria: "Salário", tipo: "receita", valor: 3000}, 
+      {categoria: "ALuguel", tipo: "despesa", valor: 1000}, 
+      {categoria: "Mercado", tipo: "despesa", valor: 1500}, 
+      {categoria: "Conta de Luz", tipo: "despesa", valor: 1000}, 
+      {categoria: "Internet", tipo: "despesa", valor: 500}
+    ]
+    saldo2 = calcularSaldo("Fevereiro", saldo1, lancamentosFevereiro)
     console.log(saldo2)
 
-    // S E T E M B R O
-    salario3 = 2000
-    aluguel3 = 2000
-    contaDeLuz3 = 500
-    internet3 = 200
-    alimentacao3 = 1000
-    saldo3 = calcularSaldo("Setembro", saldo2, salario3, aluguel3, contaDeLuz3, internet3, alimentacao3)
+    lancamentosMarco = [ 
+      {categoria: "Salário", tipo: "receita", valor: 2000}, 
+      {categoria: "Aluguel", tipo: "despesa", valor: 200}, 
+      {categoria: "Mercado", tipo: "despesa", valor: 600}, 
+      {categoria: "Conta de Luz", tipo: "despesa", valor: 150}, 
+      {categoria: "Internet", tipo: "despesa", valor: 100}
+    ]
+    saldo3 = calcularSaldo("Março", saldo2, lancamentosMarco)
     console.log(saldo3)
     
-
     acumuladoAno = saldo3
     console.log("ano")
     console.log(acumuladoAno)
-
+ 
+    
   </script>
+
   </html>
  
