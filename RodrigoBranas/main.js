@@ -80,6 +80,23 @@ function renderizar () {
 
 renderizar(); //por causa do if posso chamar a função quantas vezes quiser pois apagará o primeiro elemento
 
+
+function adicionarLancamento () {
+    const mes = document.getElementById("mes");
+    const categoria = document.getElementById("categoria");
+    const tipo = document.getElementById("tipo");
+    const valor = document.getElementById("valor");
+    
+    ano.adicionarLancamento(mes.value,new Lancamento(categoria.value, tipo.value, parseFloat(valor.value)))
+    ano.calcularSaldo();
+    renderizar();
+    mes.value ='';
+    categoria.value ='';
+    tipo.value ='';
+    categoria.value ='';
+ }
+
+
 const botao = document.getElementById("botao");
-console.log(botao)
+botao.addEventListener("click", adicionarLancamento);
 
