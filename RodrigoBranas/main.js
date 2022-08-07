@@ -90,7 +90,7 @@ function adicionarLancamento () {
     ano.adicionarLancamento(mes.value,new Lancamento(categoria.value, tipo.value, parseFloat(valor.value)))
     ano.calcularSaldo();
     renderizar();
-    mes.value ='';
+    mes.value = ano.meses[0].nome;
     categoria.value ='';
     tipo.value ='';
     categoria.value ='';
@@ -99,4 +99,11 @@ function adicionarLancamento () {
 
 const botao = document.getElementById("botao");
 botao.addEventListener("click", adicionarLancamento);
+
+const mesSelect = document.getElementById("mes");
+for ( const mes of ano.meses) {
+    const option = document.createElement("option");
+    option.text = mes.nome;
+    mesSelect.add(option);
+}
 

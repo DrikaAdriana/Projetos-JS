@@ -1,14 +1,60 @@
 <html>
    <head>
-      
+      <style>
+         body {
+            font-family: Verdana;
+         }
+         input {
+              width: 100%; /* largura input mês por tipo input */
+              height: 30px; /* altura */
+              padding: 3px;
+              font-size: 15px ; /*tamanho fonte*/
+              border-radius: 4px;
+              margin-bottom: 5px;
+              text-indent: 4px; /* distância à esquesda texto */
+              border: 1px solid #CCC
+              
+         }   
+         select {
+              width: 100%; /* largura input mês por tipo input */
+              height: 30px; /* altura */
+              font-size: 15px ; /*tamanho fonte*/
+              border-radius: 4px;
+              margin-bottom: 5px;
+              border: 1px solid #EEE;
+              
+         }   
+         #form-lancamento {
+              position: fixed; /*deixa os inputs e botao fixos na tela  */
+              right: 20px; /*a direita do documento*/
+              width: 200px; /* largura */
+              border: 1px solid black; /*espessura da linha da borda, tipo, cor*/
+              padding: 10px; /* espaço entre os dois elementos Div e inputs e botão*/
+         }
+         button {
+               width: 100%;  /* largura botão*/
+               height: 30px; /* altura desse botão*/
+               color: #FFF;/* contraste letra ficou br*/
+               background-color: black; /*cor fundo botão*/
+               border: none; /*sem borda ou vazia 0*/
+               border-radius: 4px;/* arredondou os cantos do botão*/
+         }
+      </style>
   </head>
   <body>
       <h3>Finanças Pessoais</h3> 
-      <input id = "mes" type="text" placeholder="mes"/>
-      <input id = "tipo" type="text" placeholder="tipo">
-      <input  id ="categoria"type ="text" placeholder="categoria"/>
+      <div id="form-lancamento">
+         <select id ="mes">
+         </select>
+         <select id="tipo">
+               <option>receita</option>
+               <option>despesa</option>
+         </select>
+      <input id ="categoria"type ="text" placeholder="categoria"/>
       <input id = "valor" type="number" placeholder="valor"/>
+      <br><br>
       <button id ="botao">Adicionar Lançamento</button>
+      </div>
       <div id ="app"></div>
       <script src="util.js"></script>
       <script src="lancamento.js"></script>
