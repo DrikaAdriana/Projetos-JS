@@ -40,6 +40,46 @@
                border: none; /*sem borda ou vazia 0*/
                border-radius: 4px;/* arredondou os cantos do botão*/
          }
+         .tabela-lancamentos {
+               width:  600px; /*largura */
+               background-color: #EEE;
+               border-collapse: collapse;
+         }
+         .tabela-lancamentos td, .tabela-lancamentos th {
+               border: 1px solid  #ddd;
+               padding: 8px;
+         }
+         .tabela-lancamentos tr:nth-child(even) {/*peguei um dos filhos que tem a posição par*/
+            background-color: rgb(243, 245, 244);
+         }
+         .tabela-lancamentos th{ /* th juros rendimentos saldo*/
+            padding-top: 10px;
+            padding-bottom:10px ;
+            background-color: rgb(209, 201, 201);
+            text-align: left; /*esquerda*/
+            width: 50%;
+         }
+         .grafico  {
+            width: 600px;
+            height: 200px;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: flex-end;
+         }
+         .grafico-coluna {
+            width: 120px;
+         }
+
+         .grafico-coluna-cor {
+            height: 120px;
+            background-color: red;
+         }
+         .grafoco-coluna-texto {
+            text-align: center;
+         }
+
       </style>
   </head>
   <body>
@@ -56,6 +96,27 @@
       <br><br>
       <button id ="botao">Adicionar Lançamento</button>
       </div>
+     <!---- <div class="grafico">
+         <div class="grafico-coluna">
+            <div class="grafico-coluna-cor"></div>
+             <div class="grafico-coluna-texto">
+                 janeiro
+             </div>
+         </div>
+         <div class="grafico-coluna">
+            <div class="grafico-coluna-cor"></div>
+             <div class="grafico-coluna-texto">
+                 janeiro
+             </div>
+         </div>
+         <div class="grafico-coluna">
+            <div class="grafico-coluna-cor"></div>
+             <div class="grafico-coluna-texto">
+                 janeiro
+             </div>
+         </div>
+      </div>
+   -->
       <div id ="app"></div>
       <script src="util.js"></script>
       <script src="lancamento.js"></script>
