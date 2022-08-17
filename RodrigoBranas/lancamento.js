@@ -10,8 +10,22 @@ class Lancamento {
 		if (categoria === "") {
 			throw new Error("Lançamento Inválido: A Categoria é obrigatória")
 		}
-		this.categoria = categoria
-		this.tipo = tipo
-		this.valor = valor
+		this.categoria = categoria;
+		this.tipo = tipo;
+		this.valor = valor;
+	}
+
+	getValorString() {
+		if (this.tipo === "despesa") {
+			return this.valor * -1;
+		}else{
+			return this.valor
+		 //exemplo abaixo usando operador ternário:	
+		//return (this.tipo === " despesa") ? this.valor * -1 : this.valor;
+	  //          se isso for true          return isso       se não , retorn isso
+
+		}
 	}
 }
+
+

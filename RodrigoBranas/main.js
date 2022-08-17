@@ -73,10 +73,6 @@ function renderizar () {
         grafico.appendChild(coluna);
     }
     painel.appendChild(grafico);
-
-
-
-
     
     for (const mes of ano.meses) { 
         addElement(painel, "h4" , mes.nome);    
@@ -85,7 +81,7 @@ function renderizar () {
         for (const lancamento of mes.lancamentos) { 
             const linhaLancamento = document.createElement("tr");
             addElement(linhaLancamento, "td", lancamento.categoria);
-            addElement(linhaLancamento, "td", formatarDinheiro(lancamento.valor));
+            addElement(linhaLancamento, "td", formatarDinheiro(lancamento.getValorString()));
             tabelaLancamentos.appendChild(linhaLancamento);
         }
         const linhaJuros = document.createElement("tr");
